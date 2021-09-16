@@ -1,0 +1,104 @@
+* {box-sizing: border-box;}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.918);
+    width: 100vw;
+    height: 100vh;
+}
+
+.button {
+    text-align: center;
+    max-width: 30%;
+    height: 12%;
+    background-color: #e6aeaecc;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-clip: content-box;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+h3 {
+    font-size: 2.5vw;
+    font-weight: 500;
+    padding: 1em;
+}
+
+.border-pop:hover {
+    border: 3px solid #e6aeaecc;
+    padding: .25em;
+    transition-duration: 0.2s;
+}
+
+.background-slide {
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, #e6aeaecc 50%, #3773f5 50%);
+    background-position: 0% 0%;
+    transition-property: background-position;
+    transition-duration: 1s;
+}
+
+.background-slide:hover {
+    color: white;
+    background-position-x: -100%;
+}
+
+.background-circle::before {
+    width: 100%;
+    height: 100%;
+    background-color: #e6aeaecc ;
+    z-index: -1;
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    transform: scale(1.5);
+    transition-property: transform;
+    transition-duration: .8s;
+    transform-origin: center;
+}
+
+.background-circle {
+    z-index: 1;
+    transition-property: color;
+    transition-duration: .6s;
+}
+
+.background-circle:hover::before{
+    transform: scale(0);
+} 
+
+.background-circle:hover {
+    color: white;
+    background-color: #3773f5;
+}
+
+.border-underline::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    transform: scaleX(0);
+}
+
+.border-underline:hover::before {
+    
+    border-bottom-color:#3773f5;
+    border-bottom-style: solid;
+    border-bottom-width: 7px;
+    
+    transform-origin: center;
+    transition-duration: 0.3s;
+    transform: scaleX(1);
+    transition-timing-function: ease-in-out;
+
+    z-index: 1;
+}
